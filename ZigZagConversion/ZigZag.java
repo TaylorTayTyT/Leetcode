@@ -6,7 +6,7 @@ import java.util.zip.ZipInputStream;
 import java.util.ArrayList;
 
 public class ZigZag {
-    public static String convert(ArrayList<LinkedList<Character>> depth) {
+    public static String convertToString(ArrayList<LinkedList<Character>> depth) {
         String ans = "";
         for(int i = 0; i < depth.size(); i++) {
             int limit = depth.get(i).size(); 
@@ -17,7 +17,11 @@ public class ZigZag {
         return ans; 
     }
 
-    public static String zigs(String word, int rows) {
+    public static String convert(String word, int rows) {
+
+        if (rows == 1) {
+            return word; 
+        }
 
         int zigIndex = 0;
         int cutoff = rows + 1;
@@ -43,7 +47,7 @@ public class ZigZag {
                 zigIndex++; 
 
             }
-            if ((zigIndex == 5 || zigIndex == -1) && i != 0) {
+            if ((zigIndex == rows || zigIndex == -1) && i != 0) {
                 
                 if(route == 1) {
                     zigIndex = rows - 2; 
@@ -57,12 +61,12 @@ public class ZigZag {
         }
 
         
-        return convert(depth); 
+        return convertToString(depth); 
     }
 
     
 
     public static void main(String[] args) {
-        System.out.println(zigs("PAYPALISHIRING", 5));
+        System.out.println(convert("PAYPALISHIRING", 1));
     }
 }
