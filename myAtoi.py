@@ -7,12 +7,22 @@ class Solution(object):
         """
         """implement my atoi(String s) [String to Integer]
         """
-        for i in range(32):
-            a>>1
-            if a == 0:
-                return int(s)
-
-        return null
-    print(myAtoi("-123"))
+        pos = True
         
+        int_S = int(s)
+
+        if(int_S < 0):
+            int_S *= 1
+            pos = False
+
+        bitLength = int_S.bit_length()
+        if (bitLength < 32 & pos) | (bitLength<= 31 & (not pos)):
+            return int(s)
+        
+        if(pos):
+            return pow(2, 32) - 1
+        else:
+            return pow(2,31) * -1
+
+    print(myAtoi("ab"))
         
