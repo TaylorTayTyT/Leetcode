@@ -7,19 +7,12 @@ class Solution(object):
         """
         """implement my atoi(String s) [String to Integer]
         """
-        sum = 0
-        index = len(s) - 1
-        pos = 1
-        for i in range(len(s)):
-            if (s[i] == '-'):
-                pos *= -1 
-                index -= 1
-                continue
-            sum += (ord(s[i]) - 48) * pow(10, index)
-            index -= 1
-            print(sum)
-        return pos * sum 
-    
+        for i in range(32):
+            a>>1
+            if a == 0:
+                return int(s)
+
+        return null
     print(myAtoi("-123"))
         
         
